@@ -53,7 +53,7 @@ export class BookController {
   }
 
   @Delete(':id')
-  async deleteById(@Param('id') id: string): Promise<Book> {
+  async deleteById(@Param('id') id: string): Promise<{ deleted: true }> {
     const response = await this.bookService.deleteById(id);
     return response;
   }

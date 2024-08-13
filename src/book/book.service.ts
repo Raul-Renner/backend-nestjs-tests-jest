@@ -13,7 +13,6 @@ export class BookService {
   ) {}
 
   async findAll(filter: BookFilterDto, page: number, limit: number): Promise<Book[]> {
-    console.log(page);
     // const responsePerPage = 2;
     // const currentPage = Number(filter.page) || 1;
     // const skip = responsePerPage * (currentPage - 1);
@@ -56,7 +55,9 @@ export class BookService {
     });
   }
 
-  async deleteById(id: string): Promise<Book> {
-    return await this.bookModel.findByIdAndDelete(id);
+  async deleteById(id: string): Promise<{ deleted: true }> {
+     await this.bookModel.findByIdAndDelete(id);
+
+     return { deleted: true }
   }
 }

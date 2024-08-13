@@ -174,7 +174,7 @@ describe('BookService', () => {
 
       expect(model.findByIdAndDelete).toHaveBeenLastCalledWith(mockBook._id);
 
-      expect(result).toEqual(mockBook);
+      expect(result).toEqual({ deleted: true });
     });
   });
 });
